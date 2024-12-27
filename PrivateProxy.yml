@@ -1,0 +1,11 @@
+payload:
+  # 内容：PrivateProxy
+  # 数量：6条
+  - DOMAIN,raw.githubusercontent.com
+  - DOMAIN,sturl.lookvip888.top
+  - DOMAIN-SUFFIX,openwrt.ai
+  - DOMAIN-SUFFIX,zerotier.com
+  - DOMAIN-SUFFIX,t66y.com
+  - DOMAIN-SUFFIX,cloudflare.com
+  - DOMAIN-SUFFIX,speedtest.net
+  - DOMAIN-SUFFIX,docker.com

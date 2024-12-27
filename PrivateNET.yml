@@ -1,0 +1,20 @@
+payload:
+  # 内容：PrivateNET
+  # 数量：5条
+  - DOMAIN-SUFFIX,lookvip888.top
+  - DOMAIN-SUFFIX,chenc79.online
+  - DOMAIN,chenc79.tpddns.cn
+  - DOMAIN-SUFFIX,gamutsoft.com
+  - DOMAIN-SUFFIX,ruijie.com.cn
+  - DOMAIN-SUFFIX,speedtest.cn
+  - DOMAIN-SUFFIX,notion.so
+  - DOMAIN-SUFFIX,local
+  - DOMAIN-SUFFIX,modao.cc
+  - DOMAIN-SUFFIX,oray.com
+  - DOMAIN-SUFFIX,tencent.com
+  - DOMAIN-KEYWORD,tencent
+  - DOMAIN-SUFFIX,unity3d.com
+  - DOMAIN-SUFFIX,http-inputs-notion.splunkcloud.com
+  - DOMAIN-SUFFIX,antpcdn.com
+  - DOMAIN-SUFFIX,xboxlive.com
+  - DOMAIN-SUFFIX,minecraft.net
