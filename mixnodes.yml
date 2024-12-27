@@ -1,0 +1,517 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+#unified-delay: true
+global-client-fingerprint: chrome
+
+dns:
+  enabled: true
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    # - 116.228.111.118
+    # - 202.96.209.5
+  nameserver:
+    - tls://223.5.5.5
+    - tls://1.12.12.12
+    # - 127.0.0.1:1745
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+    # - tls://adg.hks1.lookvip888.top:7853
+    # - tls://adg.sgs1.lookvip888.top:7853
+    # - 127.0.0.1:1745
+
+proxies:
+
+proxy-providers:
+  MyNodes:
+    type: http
+    interval: 43200
+    url: https://substore.hks1.lookvip888.top/sub-store/download/collection/MyNodes
+    path: ./MyNodes.yml
+    health-check:
+      enable: true
+      interval: 14400
+      url: http://www.gstatic.com/generate_204
+  CF:
+    type: http
+    url: https://substore.hks1.lookvip888.top/sub-store/download/CF
+    interval: 43200
+    path: ./CF.yml
+    health-check:
+      enable: true
+      interval: 14400
+      url: http://www.gstatic.com/generate_204
+    #filter: "singapore"
+    #exclude-filter: "HTTP-"
+    
+  BP:
+    type: http
+    url: https://substore.hks1.lookvip888.top/sub-store/download/collection/BP
+    interval: 43200
+    path: ./BP.yml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
+    # exclude-filter: "t.me|CFnat|CT|CMCC|AT"
+
+proxy-groups:
+  - name: ✅ 默认选择
+    type: select
+    proxies:
+      - 🇭🇰 自建-香港
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      - DIRECT
+
+  - name: 🤖 AI
+    type: select
+    proxies:
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - ✅ 默认选择
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+      - DIRECT
+  # - name: Ⓜ️ Copilot
+    # type: select
+    # proxies:
+      # - 🇺🇸 自建-美国
+      # - ✅ 默认选择
+      # - 🇭🇰 自建-香港
+      # - ⚛️ 自建-EDtunnel
+      # - 🪢 白嫖-自动
+      # - DIRECT
+  # - name: Ⓜ️ Bing
+    # type: select
+    # proxies:
+      # - DIRECT
+      # - ✅ 默认选择
+      # - 🇺🇸 自建-美国
+      # - 🇭🇰 自建-香港
+      # - ⚛️ 自建-EDtunnel
+      # - 🪢 白嫖-自动
+      # - REJECT
+  - name: Ⓜ️ OneDrive
+    type: select
+    proxies:
+      - DIRECT
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+  - name: Ⓜ️ Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+  - name: 📹 YouTube
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+      #- DIRECT
+  - name: 🌐 Google
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+      - DIRECT
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - DIRECT
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+
+  - name: 🎥 国内媒体
+    type: select
+    proxies:
+      - DIRECT  
+      - ✅ 默认选择
+      #- 🇸🇬 自建-新加坡
+      #- 🇭🇰 自建-香港
+      #- ⚛️ 自建-EDtunnel
+      #- 🪢 白嫖-自动
+      - REJECT
+  - name: 🎬 国外媒体
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      - REJECT
+      #- DIRECT  
+  - name: 🔞 Porn
+    type: select
+    proxies:
+      - REJECT
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- DIRECT
+  - name: 🌀 Pikpak
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+      #- DIRECT   
+  - name: 🎮 SteamCN
+    type: select
+    proxies:
+      - DIRECT
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      - REJECT
+  - name: 🎮 Steam
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      - REJECT
+      - DIRECT 
+
+  - name: ⛔️ 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - ✅ 默认选择
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - ✅ 默认选择
+  - name: 🕸 漏网之鱼
+    type: select
+    proxies:
+      - ✅ 默认选择
+      - 🇺🇸 自建-美国
+#      - 🇸🇬 自建-新加坡
+      - 🇭🇰 自建-香港
+      - ⚛️ 自建-EDtunnel
+      - 🪢 白嫖-自动
+      #- REJECT
+      - DIRECT  
+
+  - name: 🇭🇰 自建-香港
+    use:
+      - MyNodes
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 3600
+    filter: "HK_CC"
+
+  # - name: 🇸🇬 自建-新加坡
+    # use:
+      # - MyNodes
+    # type: fallback
+    # url: http://www.gstatic.com/generate_204
+    # interval: 3600
+    # filter: "SG_CC"
+
+  - name: 🇺🇸 自建-美国
+    use:
+      - MyNodes
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 3600
+    filter: "US_CC"
+    
+  - name: ⚛️ 自建-EDtunnel
+    use:
+      - CF
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 3600
+  - name: 🪢 白嫖-自动
+    use:
+      - BP
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 3600
+    tolerance: 50
+
+rule-providers:
+  OpenAI:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./OpenAI.yml
+
+  BardAI:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BardAI/BardAI.yaml
+    path: ./BardAI.yml
+  Claude:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
+    path: ./Claude.yml
+  Anthropic:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml
+    path: ./Anthropic.yml
+
+  Copilot:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Copilot/Copilot.yaml
+    path: ./Copilot.yml
+    
+  
+  Bing:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Bing/Bing.yaml
+    path: ./Bing.yml
+
+  OneDrive:
+    type: http
+    behavior: classical
+    interval: 86400
+    #url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OneDrive/OneDrive.yaml
+    path: ./OneDrive.yml
+  Microsoft:
+    type: http
+    behavior: classical
+    interval: 86400
+    #url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./Microsoft.yml
+  Google:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
+    path: ./Google.yml
+  Apple:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
+    path: ./Apple.yml
+  YouTube:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
+    path: ./YouTube.yml
+  ChinaMedia:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
+    path: ./ChinaMedia.yml
+  GlobalMedia:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
+    path: ./GlobalMedia.yml
+  Porn:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Porn.yaml
+    path: ./Porn.yml
+  PornAsia:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/PornAsia.yaml
+    path: ./PornAsia.yml
+  PikPak:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PikPak/PikPak.yaml
+    path: ./PikPak.yml
+  SteamRegionCheck:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/SteamRegionCheck.yaml
+    path: ./SteamRegionCheck.yml
+  SteamCN:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/SteamCN/SteamCN.yaml
+    path: ./SteamCN.yml
+  Steam:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Steam/Steam.yaml
+    path: ./Steam.yml
+  ChinaDomain:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/China/China_Classical.yaml
+    path: ./ChinaDomain.yml  
+  ChinaIP:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaIPs/ChinaIPs_IP.yaml
+    interval: 86400
+    path: ./ChinaIP.yml  
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml
+    path: ./LocalAreaNetwork.yml  
+  ChinaCompanyIp:
+    type: http
+    behavior: ipcidr
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml
+    path: ./ChinaCompanyIp.yml  
+
+  ProxyLite:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ProxyLite/ProxyLite.yaml
+    path: ./ProxyLite.yml  
+  BanAD:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
+    path: ./BanAD.yml
+
+  BanProgramAD:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
+    path: ./BanProgramAD.yml
+  
+  PrivateNET:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://sturl.lookvip888.top/PrivateNET.yml
+    path: ./PrivateNET.yml
+  PrivateProxy:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://sturl.lookvip888.top/PrivateProxy.yml
+    path: ./PrivateProxy.yml
+  PrivateNET_IP:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://sturl.lookvip888.top/PrivateNET_IP.yml
+    path: ./PrivateNET_IP.yml
+  PornEX:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://sturl.lookvip888.top/PornEX.yml
+    path: ./PornEX.yml
+
+rules:
+  - RULE-SET,PrivateNET_IP,DIRECT
+  - RULE-SET,PrivateNET,DIRECT
+  - RULE-SET,PrivateProxy,✅ 默认选择
+
+  - RULE-SET,BanAD,⛔️ 广告拦截
+  - RULE-SET,BanProgramAD, 🍃 应用净化
+ 
+  - RULE-SET,OpenAI,🤖 AI
+  - RULE-SET,BardAI,🤖 AI
+  - RULE-SET,Claude,🤖 AI
+  - RULE-SET,Anthropic,🤖 AI
+#  - RULE-SET,Bing,Ⓜ️ Bing
+  - RULE-SET,Copilot,🤖 AI
+  - RULE-SET,Microsoft,Ⓜ️ Microsoft
+  - RULE-SET,OneDrive,Ⓜ️ OneDrive
+  - RULE-SET,YouTube,📹 YouTube
+  - RULE-SET,Google,🌐 Google
+  - RULE-SET,Apple,🍎 苹果服务
+
+  - RULE-SET,ChinaMedia,🎥 国内媒体
+  - RULE-SET,GlobalMedia,🎬 国外媒体
+  - RULE-SET,Porn,🔞 Porn
+  - RULE-SET,PornAsia,🔞 Porn
+  - RULE-SET,PornEX,🔞 Porn
+  - RULE-SET,PikPak,🌀 Pikpak
+  - RULE-SET,SteamRegionCheck,🎮 SteamCN
+  - RULE-SET,SteamCN,🎮 SteamCN
+  - RULE-SET,Steam,🎮 Steam
+
+  - RULE-SET,ProxyLite,✅ 默认选择
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaDomain,DIRECT
+
+  - GEOIP,CN,DIRECT
+  - MATCH,🕸 漏网之鱼
