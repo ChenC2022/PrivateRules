@@ -1,7 +1,7 @@
 payload:
   # 内容：PrivateNET
   # 数量：5条
-  #- DOMAIN-SUFFIX,lookvip888.top
+  - DOMAIN-SUFFIX,lookvip888.top
   - DOMAIN-SUFFIX,chenc79.online
   - DOMAIN,chenc79.tpddns.cn
   - DOMAIN-SUFFIX,gamutsoft.com
