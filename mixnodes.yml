@@ -66,7 +66,7 @@ proxy-groups:
     proxies:
       - 🇭🇰 自建-香港
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
       - DIRECT
@@ -75,7 +75,7 @@ proxy-groups:
     type: select
     proxies:
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - ✅ 默认选择
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
@@ -107,7 +107,7 @@ proxy-groups:
       - DIRECT
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -118,7 +118,7 @@ proxy-groups:
       - DIRECT
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -128,7 +128,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -139,7 +139,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -151,7 +151,7 @@ proxy-groups:
       - DIRECT
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -172,7 +172,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -184,7 +184,7 @@ proxy-groups:
       - REJECT
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -194,7 +194,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -206,7 +206,7 @@ proxy-groups:
       - DIRECT
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -216,7 +216,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -240,7 +240,7 @@ proxy-groups:
     proxies:
       - ✅ 默认选择
       - 🇺🇸 自建-美国
-#      - 🇸🇬 自建-新加坡
+      - 🇸🇬 自建-新加坡
       - 🇭🇰 自建-香港
       - ⚛️ 自建-EDtunnel
       - 🪢 白嫖-自动
@@ -255,13 +255,13 @@ proxy-groups:
     interval: 3600
     filter: "HK_CC"
 
-  # - name: 🇸🇬 自建-新加坡
-    # use:
-      # - MyNodes
-    # type: fallback
-    # url: http://www.gstatic.com/generate_204
-    # interval: 3600
-    # filter: "SG_CC"
+  - name: 🇸🇬 自建-新加坡
+    use:
+      - MyNodes
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 3600
+    filter: "SG_CC"
 
   - name: 🇺🇸 自建-美国
     use:
