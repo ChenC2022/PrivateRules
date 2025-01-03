@@ -253,7 +253,7 @@ proxy-groups:
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 3600
-    filter: "HK_CC"
+    filter: "HK"
 
   - name: 🇸🇬 自建-新加坡
     use:
@@ -261,7 +261,7 @@ proxy-groups:
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 3600
-    filter: "SG_CC"
+    filter: "SG"
 
   # - name: 🇺🇸 自建-美国
     # use:
